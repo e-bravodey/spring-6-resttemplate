@@ -36,7 +36,7 @@ public class BeerClientImpl implements BeerClient {
         ResponseEntity<JsonNode> jsonResponse =
                 restTemplate.getForEntity(BASE_URL + GET_BEER_PATH, JsonNode.class);
 
-       jsonResponse.getBody().findPath("content")
+       jsonResponse.getBody().findPath("beer")
                 .elements().forEachRemaining(node -> {
                    System.out.println(node.get("beerName").asText());
                 });
